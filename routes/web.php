@@ -26,8 +26,10 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index');
 
+Route::resource('photo', 'PhotoController');
 
 Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin'], function() {
     Route::get('/', 'HomeController@index');
-    Route::get('article', 'ArticleController@index');
+//    Route::get('article', 'ArticleController@index');
+    Route::resource('article', 'ArticleController');
 });
