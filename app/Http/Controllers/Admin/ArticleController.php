@@ -39,4 +39,10 @@ class ArticleController extends Controller
         }
     }
 
+    public function destroy($id)
+    {
+        Article::find($id)->delete();
+        return redirect()->back()->withInput()->withErrors('删除成功！');
+    }
+
 }
